@@ -1,0 +1,35 @@
+version: "3.2"
+services:
+    jaeger-logzio-collector:
+        image: logzio/jaeger-logzio-collector:latest
+        ports:
+            - 14268:14268
+            - 14269:14269
+            - 14250:14250
+        environment:
+            - ACCOUNT_TOKEN=${ACCOUNT_TOKEN}
+            - CUSTOM_LISTENER_URL=http://listener-${REGION_CODE}.logz.io:8070
+        networks:
+            - dockercompose_testcluster
+    jaeger-agent:
+        image: jaegertracing/jaeger-agent:1.18.0
+        command: ["--reporter.grpc.host-port=jaeger-logzio-collector:14250"]
+        ports:
+            - 5775:5775/udp
+            - 6831:6831/udp
+            - 6832:6832/udp
+            - 5778:5778/tcp
+        networks:
+            - dockercompose_testcluster
+    hotrod:
+        image: jaegertracing/example-hotrod:1.9
+        environment:
+            - JAEGER_AGENT_HOST=jaeger-agent
+        ports:
+            - 18080-18083:8080-8083
+        command: ["all"]
+        networks:
+            - dockercompose_testcluster
+networks:
+    dockercompose_testcluster:
+        external: true
