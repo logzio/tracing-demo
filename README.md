@@ -1,5 +1,7 @@
 # tracing-demo
-A demo application, based on Jaeger Hot R.O.D, to submit example traces to Logz.io's distributed tracing product.
+A demo application, based on [Jaeger Hot R.O.D](https://github.com/jaegertracing/jaeger/tree/master/examples/hotrod), to submit example traces to [Logz.io's distributed tracing product](https://logz.io/platform/distributed-tracing/).
+
+This demo application is used by Logz.io's guide to ["Sending demo traces with the HotROD application"](https://docs.logz.io/user-guide/distributed-tracing/trace-hotrod-demo).
 
 ## Prerequisites
 - [Docker](https://docs.docker.com/get-docker/)
@@ -24,3 +26,7 @@ Open http://127.0.0.1:18080 and click on the buttons to send traces.
 ```
 $ docker-compose down
 ```
+
+## Additional References
+- [Logz.io Distributed Tracing - User Guide](https://docs.logz.io/user-guide/distributed-tracing/)
+- [Logz.io Distributed Tracing - Getting Started](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing/)
