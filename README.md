@@ -15,6 +15,11 @@ ACCOUNT_TOKEN=MyAccountToken
 REGION_CODE=us
 ```
 
+Create External network
+```
+$ docker network create dockercompose_testcluster
+```
+
 Start the demo:
 ```
 $ docker-compose up
