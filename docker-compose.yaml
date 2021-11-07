@@ -12,8 +12,8 @@ services:
         networks:
             - dockercompose_testcluster
     jaeger-agent:
-        image: jaegertracing/jaeger-agent:1.18.0
-        command: ["--reporter.grpc.host-port=jaeger-logzio-collector:14250"]
+        image: jaegertracing/jaeger-agent:1.28.0
+        command: ["--agent.tags=span_type=demo","--reporter.grpc.host-port=jaeger-logzio-collector:14250"]
         ports:
             - 5775:5775/udp
             - 6831:6831/udp
@@ -22,7 +22,7 @@ services:
         networks:
             - dockercompose_testcluster
     hotrod:
-        image: jaegertracing/example-hotrod:1.9
+        image: jaegertracing/example-hotrod:1.28.0
         environment:
             - JAEGER_AGENT_HOST=jaeger-agent
         ports:

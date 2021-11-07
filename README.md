@@ -15,16 +15,21 @@ ACCOUNT_TOKEN=MyAccountToken
 REGION_CODE=us
 ```
 
+Create External network
+```
+docker network create dockercompose_testcluster
+```
+
 Start the demo:
 ```
-$ docker-compose up
+docker-compose up
 ```
 
 Open http://127.0.0.1:18080 and click on the buttons to send traces.
 
 `Ctrl+C` to stop the demo and then remove the containers with:
 ```
-$ docker-compose down
+docker-compose down
 ```
 
 ## Additional References
